@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(224, 235, 233, 0.55);
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  width: 90%;
+  max-width: 950px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 18px;
+  color: #8764be;
+  font-weight: 700;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.optionBox {
+  width: 280px;
+  padding: 22px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.optionBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.optionTitle {
+  margin-top: 6px;
+  color: #8764be;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+.optionDesc {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0 18px 0;
+  min-height: 48px;
+}
+
+.btn {
+  background-color: #8764be;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+
+.marginLeft {
+  margin-right: 8px;
+}
+
+
+@media (max-width: 640px) {
+  .options {
+    gap: 16px;
+  }
+  .optionBox {
+    width: 100%;
+    max-width: 420px;
+  }
+  .title {
+    font-size: 26px;
+  }
+}
