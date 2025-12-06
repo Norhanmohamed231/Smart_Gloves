@@ -1,7 +1,15 @@
 import React, { useState, useRef } from "react";
 import { convertSpeechToText } from "../api/speechApi";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Deaf() {
+
+  const navigate = useNavigate();
+
+const goBack = () => {
+  navigate(-1); 
+};
+
   const [text, setText] = useState("");
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
@@ -46,7 +54,9 @@ function Deaf() {
 
   return (
     <div style={styles.container}>
-      
+     <button onClick={goBack} style={styles.backIcon}>
+  <i className="fa-solid fa-arrow-left"></i>
+</button>
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -97,11 +107,12 @@ function Deaf() {
 const styles = {
   container: {
     height: "100vh",
-    background: "linear-gradient(135deg, #6a0dad, #c084fc)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontFamily: "'Poppins', sans-serif",
+  background: "linear-gradient(135deg, #6a0dad, #c084fc)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontFamily: "'Poppins', sans-serif",
+  position: "relative",
   },
   card: {
     background: "#fff",
@@ -155,6 +166,21 @@ const styles = {
     cursor: "pointer",
     transition: "0.3s ease",
   },
+  backIcon: {
+  position: "absolute",
+  top: "20px",
+  left: "20px",
+  fontSize: "26px",
+  color: "white",
+  background: "rgba(255, 255, 255, 0.25)",
+  padding: "10px 14px",
+  borderRadius: "50%",
+  border: "none",
+  cursor: "pointer",
+  backdropFilter: "blur(5px)",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+  transition: "0.3s",
+}
 };
 
 export default Deaf;

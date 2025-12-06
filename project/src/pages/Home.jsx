@@ -8,7 +8,7 @@ function Home() {
     <div className='container'>
       <div className='overlay'></div>
       <div className='card'>
-        <p className='title'>اختر نوع المساعدة الذكية التي تناسبك</p>
+        <p className='title'>Choose the smart support option that suits you</p>
 
         <div className='options'>
           {/* visual support */}

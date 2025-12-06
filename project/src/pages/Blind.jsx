@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { convertTextToSpeech } from "../api/speechApi";
+import { useNavigate } from "react-router-dom";
 
 function Blind() {
+
+   const navigate = useNavigate();
+
+const goBack = () => {
+  navigate(-1); 
+};
+
+
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -13,6 +22,10 @@ function Blind() {
 
   return (
     <div style={styles.container}>
+
+       <button onClick={goBack} style={styles.backIcon}>
+  <i className="fa-solid fa-arrow-left"></i>
+</button>
       
 
       <div style={styles.card}>
@@ -54,6 +67,7 @@ function Blind() {
           {loading ? "جاري التحويل..." : "استمع"}
         </button>
       </div>
+      
     </div>
   );
 }
@@ -121,6 +135,21 @@ const styles = {
     cursor: "pointer",
     transition: "0.3s ease",
   },
+  backIcon: {
+  position: "absolute",
+  top: "20px",
+  left: "20px",
+  fontSize: "26px",
+  color: "white",
+  background: "rgba(255, 255, 255, 0.25)",
+  padding: "10px 14px",
+  borderRadius: "50%",
+  border: "none",
+  cursor: "pointer",
+  backdropFilter: "blur(5px)",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+  transition: "0.3s",
+}
 };
 
 export default Blind;
